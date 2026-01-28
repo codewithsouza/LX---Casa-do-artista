@@ -169,6 +169,7 @@
       border:0;
       border-bottom:1px solid var(--border);
       box-shadow: none;
+      filter: brightness(0.9) saturate(1.08) hue-rotate(-6deg);
     }
     .carouselDots{
       display:flex;
@@ -293,6 +294,14 @@
 
     /* ALBUMS */
     .album{grid-column: span 4}
+    .album{
+      cursor:pointer;
+      transition: transform .15s ease, border-color .2s ease;
+    }
+    .album:hover{
+      transform: translateY(-2px);
+      border-color: rgba(108,194,74,.35);
+    }
     .featured{
       grid-column: span 12;
       display:grid;
@@ -336,6 +345,73 @@
       background: rgba(0,0,0,.35);
       padding:6px 10px; border:1px solid rgba(255,255,255,.12);
       border-radius: 999px;
+    }
+    .albumModal{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,.7);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:100;
+    }
+    .albumModal.open{display:flex}
+    .albumModalCard{
+      width:min(900px, 92vw);
+      background: var(--panel);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap:0;
+      transform: translateY(10px);
+      opacity:0;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .albumModal.open .albumModalCard{
+      transform: translateY(0);
+      opacity:1;
+    }
+    .albumModalCover{
+      background:#0b0b0b;
+      border-right:1px solid var(--border);
+    }
+    .albumModalCover img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .albumModalBody{
+      padding:20px 22px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .albumModalBody h3{margin:0; font-size:22px}
+    .albumMetaRow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.08em;
+    }
+    .albumActions{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+    .albumClose{
+      position:absolute;
+      top:18px;
+      right:18px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.35);
+      color:var(--text);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      cursor:pointer;
+    }
+    @media (max-width: 700px){
+      .albumModalCard{grid-template-columns: 1fr}
+      .albumModalCover{border-right:0; border-bottom:1px solid var(--border); min-height:220px}
     }
     .album p{color:var(--muted); margin:6px 0 0}
 
@@ -666,30 +742,30 @@
             </div>
           </div>
 
-          <div class="card album">
+          <div class="card album" data-title="Armadilha Brasileira, Vol. 2" data-year="2025" data-type="Álbum" data-tracks="13 músicas" data-duration="32min 31s" data-cover="assets/img/albums/lx_album1.png" data-spotify="https://open.spotify.com/intl-pt/album/5AoAjFIeh9ogBNk5pwYoiZ" data-youtube="https://www.youtube.com/watch?v=apOIIiO63mo&list=PLU-2Q4TC5O1_imAt0_0kQZLUsOyN43rKy">
             <div class="cover album1"></div>
             <b>Armadilha Brasileira, Vol. 2</b>
-            <p>2025 • Álbum • 13 músicas, 32min 31s</p>
+            <p>2025 • Álbum</p>
             <div class="ctaRow" style="margin-top:12px;">
               <a class="btn" href="https://open.spotify.com/intl-pt/album/5AoAjFIeh9ogBNk5pwYoiZ" target="_blank" rel="noreferrer">Spotify</a>
               <a class="btn" href="https://www.youtube.com/watch?v=apOIIiO63mo&list=PLU-2Q4TC5O1_imAt0_0kQZLUsOyN43rKy" target="_blank" rel="noreferrer">YouTube</a>
             </div>
           </div>
 
-          <div class="card album">
+          <div class="card album" data-title="Bem-vindo a Armadilha Brasileira" data-year="2024" data-type="Álbum" data-tracks="11 músicas" data-duration="26min 7s" data-cover="assets/img/albums/lx_album2.png" data-spotify="https://open.spotify.com/intl-pt/album/6djuaxmB22F71KPU0A7CrU" data-youtube="https://www.youtube.com/watch?v=QMpPaNz2mGs&list=PLU-2Q4TC5O18BVP-Bjea04qXmZrNRhUoi">
             <div class="cover album2"></div>
             <b>Bem-vindo a Armadilha Brasileira</b>
-            <p>2024 • Álbum • 11 músicas, 26min 7s</p>
+            <p>2024 • Álbum</p>
             <div class="ctaRow" style="margin-top:12px;">
               <a class="btn" href="https://open.spotify.com/intl-pt/album/6djuaxmB22F71KPU0A7CrU" target="_blank" rel="noreferrer">Spotify</a>
               <a class="btn" href="https://www.youtube.com/watch?v=QMpPaNz2mGs&list=PLU-2Q4TC5O18BVP-Bjea04qXmZrNRhUoi" target="_blank" rel="noreferrer">YouTube</a>
             </div>
           </div>
 
-          <div class="card album">
+          <div class="card album" data-title="Sem Alternativa" data-year="2024" data-type="Álbum" data-tracks="8 músicas" data-duration="18min 34s" data-cover="assets/img/albums/lx_album3.png" data-spotify="https://open.spotify.com/intl-pt/album/0UHt288BMPD1pgdUeiZgh2" data-youtube="https://www.youtube.com/watch?v=bZzW_5p-JZw&list=PLU-2Q4TC5O1_EjYnzmUaYONzP_VE08076">
             <div class="cover album3"></div>
             <b>Sem Alternativa</b>
-            <p>2024 • Álbum • 8 músicas, 18min 34s</p>
+            <p>2024 • Álbum</p>
             <div class="ctaRow" style="margin-top:12px;">
               <a class="btn" href="https://open.spotify.com/intl-pt/album/0UHt288BMPD1pgdUeiZgh2" target="_blank" rel="noreferrer">Spotify</a>
               <a class="btn" href="https://www.youtube.com/watch?v=bZzW_5p-JZw&list=PLU-2Q4TC5O1_EjYnzmUaYONzP_VE08076" target="_blank" rel="noreferrer">YouTube</a>
@@ -697,6 +773,23 @@
           </div>
         </div>
       </section>
+
+      <div class="albumModal" id="albumModal" aria-hidden="true">
+        <div class="albumModalCard" role="dialog" aria-modal="true" aria-labelledby="albumTitle">
+          <button class="albumClose" type="button" id="albumClose">Fechar</button>
+          <div class="albumModalCover">
+            <img id="albumCover" src="" alt="Capa do álbum" />
+          </div>
+          <div class="albumModalBody">
+            <h3 id="albumTitle"></h3>
+            <div class="albumMetaRow" id="albumMeta"></div>
+            <div class="albumActions">
+              <a class="btn" id="albumSpotify" href="#" target="_blank" rel="noreferrer">Spotify</a>
+              <a class="btn" id="albumYouTube" href="#" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- AGENDA -->
       <section id="agenda">
@@ -979,6 +1072,63 @@
     agendaClose?.addEventListener("click", closeAgendaModal);
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") closeAgendaModal();
+    });
+
+    // álbuns: modal
+    const albumModal = document.getElementById("albumModal");
+    const albumClose = document.getElementById("albumClose");
+    const albumCover = document.getElementById("albumCover");
+    const albumTitle = document.getElementById("albumTitle");
+    const albumMeta = document.getElementById("albumMeta");
+    const albumSpotify = document.getElementById("albumSpotify");
+    const albumYouTube = document.getElementById("albumYouTube");
+
+    const openAlbumModal = (data) => {
+      if (!albumModal) return;
+      albumCover.src = data.cover || "";
+      albumTitle.textContent = data.title || "Lançamento";
+      albumMeta.textContent = "";
+      [data.year, data.type, data.tracks, data.duration].forEach((val) => {
+        if (!val) return;
+        const span = document.createElement("span");
+        span.textContent = val;
+        albumMeta.appendChild(span);
+      });
+      albumSpotify.href = data.spotify || "#";
+      albumYouTube.href = data.youtube || "#";
+      albumModal.classList.add("open");
+      albumModal.setAttribute("aria-hidden", "false");
+    };
+
+    const closeAlbumModal = () => {
+      if (!albumModal) return;
+      albumModal.classList.remove("open");
+      albumModal.setAttribute("aria-hidden", "true");
+    };
+
+    document.querySelectorAll(".card.album").forEach((card) => {
+      card.addEventListener("click", (e) => {
+        if (e.target.closest("a")) return;
+        const data = {
+          title: card.dataset.title,
+          year: card.dataset.year,
+          type: card.dataset.type,
+          tracks: card.dataset.tracks,
+          duration: card.dataset.duration,
+          cover: card.dataset.cover,
+          spotify: card.dataset.spotify,
+          youtube: card.dataset.youtube,
+        };
+        openAlbumModal(data);
+      });
+    });
+
+    albumModal?.addEventListener("click", (e) => {
+      if (e.target === albumModal) closeAlbumModal();
+    });
+    albumClose?.addEventListener("click", closeAlbumModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeAlbumModal();
     });
 
     // formulário: monta mensagem e abre o WhatsApp
