@@ -7,8 +7,7 @@ Site oficial do projeto **LX**, com home e página dedicada de **Mídia Kit**.
 - Abra o arquivo `index.html` no navegador.
 - A página de mídia kit está em `midia-kit.html`.
 
-## Estrutura do projeto (clean)
-
+## Estrutura do projeto 
 ```
 /
 ├─ index.html
