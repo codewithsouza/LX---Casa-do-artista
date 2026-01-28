@@ -1,0 +1,1011 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lx — Musicas, Shows & Lifestyle</title>
+  <meta name="description" content="Portfólio oficial: beats, álbuns, agenda e contato." />
+  <meta property="og:title" content="LX — Artista, Beatmaker e Produtor" />
+  <meta property="og:description" content="Ouça prévias, veja álbuns e contrate para shows e beats exclusivos." />
+  <meta property="og:image" content="assets/img/hero/lx_hero.gif" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preload" as="image" href="assets/img/hero/lx_hero.gif" />
+
+  <style>
+    :root{
+      --bg: #050605;
+      --panel: #0B0E0B;
+      --panel2:#0B0E0B;
+      --text:#f2f2f2;
+      --muted:#9aa0aa;
+      --brand:#111111;
+      --brand2:#111111;
+      --border: #1E241E;
+      --accent: #6cc24a;
+      --shadow: 0 12px 30px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1100px;
+      --hero-photo: url("assets/img/hero/lx_hero.gif");
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      background-color: var(--bg);
+      background-image: linear-gradient(180deg, #3A4F2C 0%, #1F2918 45%, #050605 100%);
+      background-repeat: no-repeat;
+      background-size: 100% calc(100vh + 520px);
+      color:var(--text);
+      line-height:1.5;
+      position:relative;
+      min-height:100%;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:24px}
+    .chip{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px; border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius:999px; color:var(--muted); font-size:14px;
+      backdrop-filter: blur(10px);
+    }
+
+    /* NAV */
+    header{
+      position:sticky; top:0; z-index:50;
+    }
+    .navbar{
+      background: rgba(5, 6, 5, 0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .navbar.scrolled{
+      background: rgba(0,0,0,0.95);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      padding:24px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px;
+      font-size:20px;
+      margin-left:20px;
+    }
+    .navPhoto{
+      width:56px; height:56px; border-radius:14px;
+      object-fit: cover;
+      border:1px solid var(--border);
+      display:block;
+    }
+    nav ul{
+      display:flex; list-style:none; gap:14px; padding:0; margin:0;
+      align-items:center;
+    }
+    nav a{
+      color:var(--muted); font-size:16px; padding:14px 12px; border-radius:12px;
+    }
+    nav a:hover{color:var(--text); background: rgba(255,255,255,.05)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 16px; border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      font-weight:700; font-size:14px;
+      box-shadow: none;
+      cursor:pointer;
+      transition: transform .08s ease, background .2s ease;
+    }
+    .btn:not(.text):hover{background: var(--accent); color:#050605}
+    .btn:active{transform: translateY(1px)}
+    .btn.primary{
+      border:1px solid var(--accent);
+      background: var(--accent);
+      color:#050605;
+    }
+    .btn.outline{
+      background: transparent;
+      border:1px solid var(--border);
+      color:var(--text);
+    }
+    .btn.text{
+      background: transparent;
+      border:1px solid transparent;
+      color:var(--muted);
+      padding:12px 8px;
+    }
+    .btn.text:hover{background: transparent; color:var(--text)}
+    .btn.small{
+      font-size:12px;
+      padding:8px 12px;
+      border-radius:12px;
+    }
+    .mobileToggle{display:none}
+
+    /* HERO */
+    .hero{
+      padding:0 0 10px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .heroCard{
+      background: linear-gradient(180deg, rgba(79,107,45,.25), rgba(5,6,5,.95));
+      border:1px solid rgba(30,36,30,.7);
+      border-radius: 12px;
+      padding:0;
+      box-shadow: 0 8px 18px rgba(0,0,0,.35);
+      backdrop-filter: blur(12px);
+      overflow:hidden;
+      position:relative;
+      margin-top:-20px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      gap:12px;
+      min-height:520px;
+    }
+    .heroMedia{
+      width:100%;
+      max-width:none;
+      margin:0;
+    }
+    .heroMedia img{
+      width:100%;
+      height:auto;
+      max-height:560px;
+      object-fit: cover;
+      display:block;
+      border-radius: 12px 12px 0 0;
+      border:0;
+      border-bottom:1px solid var(--border);
+      box-shadow: none;
+    }
+    .carouselDots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      padding:10px 0 2px;
+    }
+    .carouselDot{
+      width:18px;
+      height:4px;
+      border-radius:999px;
+      background: rgba(255,255,255,.18);
+      transition: background .2s ease, transform .2s ease;
+    }
+    .carouselDot.active{
+      background: rgba(255,255,255,.7);
+      transform: scaleX(1.1);
+    }
+    .heroBody{
+      width:100%;
+      padding:8px 26px 28px;
+      display:flex;
+      justify-content:center;
+    }
+    .heroInner{position:relative; text-align:center; max-width:760px}
+    h1{margin:12px 0 8px; font-size:52px; line-height:1.05; font-weight:900; letter-spacing:.06em}
+    .sub{color:var(--muted); font-size:16px; max-width:70ch; margin:0 auto}
+    .ctaRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; justify-content:center}
+    .socialRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; justify-content:center}
+    .stats{
+      display:grid; grid-template-columns: repeat(3, 1fr);
+      gap:10px; margin-top:18px
+    }
+    .stat{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius:16px;
+      padding:12px;
+    }
+    .stat b{display:block; font-size:18px}
+    .stat span{color:var(--muted); font-size:13px}
+
+    .profile{
+      display:flex; flex-direction:column; gap:12px;
+      justify-content:space-between;
+    }
+    .photo{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      background:
+        url("https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=70") center/cover no-repeat;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .photo::after{
+      content:"Troque por uma foto real";
+      position:absolute; left:12px; bottom:12px;
+      font-size:12px; color:rgba(255,255,255,.8);
+      background: rgba(0,0,0,.35);
+      padding:8px 10px; border:1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
+    }
+    .pillRow{display:flex; flex-wrap:wrap; gap:8px}
+    .pill{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--border);
+      padding:8px 10px; border-radius:999px;
+      background: rgba(255,255,255,.03);
+    }
+
+    /* SECTIONS */
+    section{padding:28px 0}
+    .sectionHead{
+      display:flex; justify-content:space-between; align-items:flex-end; gap:12px;
+      margin-bottom:12px;
+    }
+    .sectionHead h2{margin:0; font-size:22px}
+    .sectionHead p{margin:0; color:var(--muted); font-size:14px}
+    .grid{
+      display:grid; gap:12px;
+      grid-template-columns: repeat(12, 1fr);
+    }
+    .card{
+      background: var(--panel);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .card{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+    .card.in-view{
+      opacity:1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce){
+      .card{transition:none; transform:none; opacity:1}
+    }
+
+    /* ABOUT */
+    .about{grid-column: span 7}
+    .about p{color:var(--muted); margin-top:10px}
+    .links{grid-column: span 5; display:flex; flex-direction:column; gap:10px}
+    .linkBtn{
+      display:flex; justify-content:space-between; align-items:center;
+      padding:12px 14px; border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+    }
+    .linkBtn small{color:var(--muted)}
+    .linkBtn:hover{background: rgba(255,255,255,.06)}
+
+
+    /* ALBUMS */
+    .album{grid-column: span 4}
+    .featured{
+      grid-column: span 12;
+      display:grid;
+      grid-template-columns: 240px 1fr;
+      gap:18px;
+      align-items:center;
+      border:1px solid var(--accent);
+      background: rgba(5,6,5,.6);
+    }
+    .featured .cover{margin:0; border-radius:14px}
+    .featuredLabel{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--accent);
+      margin-bottom:6px;
+      font-weight:800;
+    }
+    .cover{
+      width:100%; aspect-ratio: 1/1;
+      border-radius: 16px;
+      border:1px solid var(--border);
+      background: #0b0b0b;
+      margin-bottom:12px;
+      position:relative;
+      overflow:hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    .cover.album1{background-image:url("assets/img/albums/lx_album1.png")}
+    .cover.album2{background-image:url("assets/img/albums/lx_album2.png")}
+    .cover.album3{background-image:url("assets/img/albums/lx_album3.png")}
+    .cover.single1{background-image:url("assets/img/singles/lx_single1.png")}
+    .cover::after{
+      content:"Capa";
+      position:absolute; inset:auto 12px 12px auto;
+      font-size:12px; color:rgba(255,255,255,.8);
+      background: rgba(0,0,0,.35);
+      padding:6px 10px; border:1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+    }
+    .album p{color:var(--muted); margin:6px 0 0}
+
+    /* AGENDA */
+    .agenda{grid-column: span 8}
+    .agendaList{
+      display:grid;
+      gap:12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .agendaItem{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding:14px 16px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      cursor:pointer;
+      transition: transform .15s ease, border-color .2s ease;
+    }
+    .agendaItem:hover{
+      transform: translateY(-2px);
+      border-color: rgba(108,194,74,.35);
+    }
+    .agendaTop{
+      font-weight:800;
+      font-size:15px;
+      letter-spacing:.02em;
+    }
+    .agendaMeta{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      color:var(--muted);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+    }
+    .agendaBottom{
+      color:var(--muted);
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      display:flex;
+      gap:8px;
+      align-items:center;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:6px;
+      padding:4px 8px; border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size:11px;
+      white-space:nowrap;
+    }
+    .badge.confirmado{
+      border-color: rgba(108,194,74,.5);
+      color: #c9f5b9;
+    }
+    .badge.confirmar{
+      border-color: rgba(255,255,255,.2);
+      color: #cfcfcf;
+    }
+    .agendaModal{
+      position:fixed;
+      inset:0;
+      background: rgba(0,0,0,.7);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      z-index:100;
+    }
+    .agendaModal.open{display:flex}
+    .agendaCard{
+      width:min(900px, 92vw);
+      background: var(--panel);
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 280px 1fr;
+      gap:0;
+      transform: translateY(10px);
+      opacity:0;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .agendaModal.open .agendaCard{
+      transform: translateY(0);
+      opacity:1;
+    }
+    .agendaFlyer{
+      background: #0b0b0b;
+      border-right:1px solid var(--border);
+      min-height:280px;
+    }
+    .agendaFlyer img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .agendaDetails{
+      padding:20px 22px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .agendaDetails h3{margin:0; font-size:22px}
+    .agendaMetaRow{
+      display:flex; flex-wrap:wrap; gap:10px;
+      color:var(--muted); font-size:12px; text-transform:uppercase; letter-spacing:.08em;
+    }
+    .agendaActions{display:flex; gap:10px; flex-wrap:wrap; margin-top:8px}
+    .modalClose{
+      position:absolute;
+      top:18px;
+      right:18px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.35);
+      color:var(--text);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      cursor:pointer;
+    }
+    @media (max-width: 700px){
+      .agendaCard{grid-template-columns: 1fr}
+      .agendaFlyer{border-right:0; border-bottom:1px solid var(--border); min-height:220px}
+    }
+    .promo{
+      grid-column: span 4;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      justify-content:center;
+      align-self:stretch;
+      position:relative;
+    }
+    .promo .btn{width:100%}
+    .next-show{
+      border-left:4px solid var(--accent);
+      padding-left:16px;
+    }
+
+    /* CONTACT */
+    .contact{grid-column: span 7}
+    form{display:grid; gap:10px}
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.5);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:120px; resize:vertical}
+    .contactSide{grid-column: span 5; display:flex; flex-direction:column; gap:10px}
+    .note{color:var(--muted); font-size:13px}
+
+    footer{
+      padding:60px 0 40px;
+      text-align:center;
+      color: rgba(255,255,255,.4);
+      font-size:12px;
+    }
+    .footerHandle{
+      margin-top:10px;
+      font-size:12px;
+      color: rgba(255,255,255,.5);
+    }
+    .footerBtn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      margin-top:8px;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.6);
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:10px;
+    }
+    .footerBtn:hover{
+      background: rgba(255,255,255,.06);
+      color: rgba(255,255,255,.8);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr; padding-top:18px}
+      .about,.links,.agenda,.promo,.contact,.contactSide{grid-column: span 12}
+      .album{grid-column: span 6}
+    }
+    @media (max-width: 560px){
+      nav ul{display:none}
+      .mobileToggle{display:inline-flex}
+      .wrap{padding:18px}
+      .nav{flex-wrap:wrap; gap:10px}
+      .brand{font-size:18px}
+      .navPhoto{width:48px; height:48px}
+      .nav .btn{font-size:13px; padding:10px 12px}
+      h1{font-size:34px}
+      .heroMedia img{max-height:260px}
+      .agendaList{grid-template-columns: 1fr}
+      .featured{grid-template-columns: 1fr}
+      .ctaRow .btn, .socialRow .btn{flex:1 1 auto}
+      .stats{grid-template-columns:1fr; }
+      .album{grid-column: span 12}
+      table{display:block}
+      thead{display:none}
+      tbody, tr, td{display:block; width:100%}
+      tr{margin-top:10px}
+      td{padding:10px 12px}
+      td::before{
+        content: attr(data-label);
+        display:block;
+        color:var(--muted);
+        font-size:11px;
+        text-transform:uppercase;
+        letter-spacing:.08em;
+        margin-bottom:4px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Home">
+        <span>LX</span>
+      </a>
+
+      <nav aria-label="Navegação principal">
+        <ul>
+          <li><a href="#apresentacao">Sobre</a></li>
+          <li><a href="#albuns">Ouvir</a></li>
+          <li><a href="#agenda">Agenda</a></li>
+          <li><a href="midia-kit.html">Mídia Kit</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a class="btn" href="#contato">Contratar / Orçamentos</a>
+        <button class="btn mobileToggle" id="menuBtn" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
+      </div>
+    </div>
+
+    <!-- menu mobile simples -->
+    <div class="wrap" id="mobileMenu" style="display:none; padding-top:0; padding-bottom:14px;">
+      <div class="card" style="padding:10px;">
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <a class="btn" href="#apresentacao">Sobre</a>
+          <a class="btn" href="#albuns">Ouvir</a>
+          <a class="btn" href="#agenda">Agenda</a>
+          <a class="btn" href="midia-kit.html">Mídia Kit</a>
+          <a class="btn" href="#contato">Contato</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap">
+
+      <!-- APRESENTAÇÃO -->
+      <section id="apresentacao">
+        <div class="hero">
+          <div class="heroCard">
+            <div class="heroMedia">
+              <img
+                src="assets/img/hero/lx_hero.gif"
+                alt="LX — GIF"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <div class="heroBody">
+              <div class="heroInner">
+              <span class="chip">Música • moda • lifestyle</span>
+              <h1>LX</h1>
+            
+
+              <div class="ctaRow">
+                <a class="btn primary" href="https://open.spotify.com/intl-pt/track/5VnlZ5fkbyFQ9uW4wo2KkA?si=1bfbbb3e2b204f36" target="_blank" rel="noreferrer">Ouvir agora</a>
+                <a class="btn outline" href="#contato">Contratar</a>
+                <a class="btn outline" href="#agenda">Agenda</a>
+              </div>
+
+              <div class="socialRow" aria-label="Redes e plataformas">
+                <a class="btn small" href="https://www.instagram.com/eusoulx/" target="_blank" rel="noreferrer">Instagram</a>
+                <a class="btn small" href="https://open.spotify.com/artist/2Mpz3shu5Ud330kOoJFYpF" target="_blank" rel="noreferrer">Spotify</a>
+                <a class="btn small" href="https://www.youtube.com/@LXOFICIAL" target="_blank" rel="noreferrer">YouTube</a>
+                <a class="btn small" href="https://www.tiktok.com/@eusoulx?_r=1&_t=ZS-93PRbmv8rH5" target="_blank" rel="noreferrer">TikTok</a>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ÁLBUNS -->
+      <section id="albuns">
+        <div class="sectionHead">
+          <div>
+            <h2>Últimos lançamentos</h2>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card featured">
+            <div class="cover single1"></div>
+            <div>
+              <div class="featuredLabel">Em destaque</div>
+              <h3 style="margin:0 0 6px;">SRT (ato genuino)</h3>
+              <p class="note" style="margin:0 0 12px;">Single • 2026 • 1 música, 2min 12s</p>
+              <a class="btn primary" href="https://open.spotify.com/intl-pt/track/5VnlZ5fkbyFQ9uW4wo2KkA?si=1bfbbb3e2b204f36" target="_blank" rel="noreferrer">Ouvir agora</a>
+            </div>
+          </div>
+
+          <div class="card album">
+            <div class="cover album1"></div>
+            <b>Armadilha Brasileira, Vol. 2</b>
+            <p>2025 • Álbum • 13 músicas, 32min 31s</p>
+            <div class="ctaRow" style="margin-top:12px;">
+              <a class="btn" href="https://open.spotify.com/intl-pt/album/5AoAjFIeh9ogBNk5pwYoiZ" target="_blank" rel="noreferrer">Spotify</a>
+              <a class="btn" href="https://www.youtube.com/watch?v=apOIIiO63mo&list=PLU-2Q4TC5O1_imAt0_0kQZLUsOyN43rKy" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+
+          <div class="card album">
+            <div class="cover album2"></div>
+            <b>Bem-vindo a Armadilha Brasileira</b>
+            <p>2024 • Álbum • 11 músicas, 26min 7s</p>
+            <div class="ctaRow" style="margin-top:12px;">
+              <a class="btn" href="https://open.spotify.com/intl-pt/album/6djuaxmB22F71KPU0A7CrU" target="_blank" rel="noreferrer">Spotify</a>
+              <a class="btn" href="https://www.youtube.com/watch?v=QMpPaNz2mGs&list=PLU-2Q4TC5O18BVP-Bjea04qXmZrNRhUoi" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+
+          <div class="card album">
+            <div class="cover album3"></div>
+            <b>Sem Alternativa</b>
+            <p>2024 • Álbum • 8 músicas, 18min 34s</p>
+            <div class="ctaRow" style="margin-top:12px;">
+              <a class="btn" href="https://open.spotify.com/intl-pt/album/0UHt288BMPD1pgdUeiZgh2" target="_blank" rel="noreferrer">Spotify</a>
+              <a class="btn" href="https://www.youtube.com/watch?v=bZzW_5p-JZw&list=PLU-2Q4TC5O1_EjYnzmUaYONzP_VE08076" target="_blank" rel="noreferrer">YouTube</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AGENDA -->
+      <section id="agenda">
+        <div class="sectionHead">
+          <div>
+            <h2>Agenda de shows</h2>
+            <p>Datas, cidade, local e status (confirmado/à confirmar).</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card agenda">
+            <div class="agendaList">
+              <div class="agendaItem next-show" data-show="SP · Casa X" data-date="10/02" data-time="22h" data-age="16+" data-status="Confirmado" data-info="Ingressos abertos" data-ticket="https://ingresso.com" data-flyer="assets/img/albums/lx_album1.png">
+                <div class="agendaTop">SP · Casa X</div>
+                <div class="agendaMeta">
+                  <span>10/02</span>
+                  <span>22h</span>
+                  <span>16+</span>
+                </div>
+                <div class="agendaBottom">Confirmado — <span class="badge confirmado">Ingressos abertos</span></div>
+              </div>
+              <div class="agendaItem" data-show="Campinas · Evento Y" data-date="22/02" data-time="23h" data-age="18+" data-status="A confirmar" data-info="Line-up em breve" data-ticket="https://sympla.com.br" data-flyer="assets/img/albums/lx_album2.png">
+                <div class="agendaTop">Campinas · Evento Y</div>
+                <div class="agendaMeta">
+                  <span>22/02</span>
+                  <span>23h</span>
+                  <span>18+</span>
+                </div>
+                <div class="agendaBottom">A confirmar — <span class="badge confirmar">Line-up em breve</span></div>
+              </div>
+              <div class="agendaItem" data-show="RJ · Festival Z" data-date="05/03" data-time="20h" data-age="Livre" data-status="Confirmado" data-info="Palco principal" data-ticket="https://eventim.com.br" data-flyer="assets/img/albums/lx_album3.png">
+                <div class="agendaTop">RJ · Festival Z</div>
+                <div class="agendaMeta">
+                  <span>05/03</span>
+                  <span>20h</span>
+                  <span>Livre</span>
+                </div>
+                <div class="agendaBottom">Confirmado — <span class="badge confirmado">Palco principal</span></div>
+              </div>
+              <div class="agendaItem" data-show="BH · Arena W" data-date="19/03" data-time="21h" data-age="18+" data-status="Confirmado" data-info="Lote 1" data-ticket="https://ingresso.com" data-flyer="assets/img/albums/lx_album1.png">
+                <div class="agendaTop">BH · Arena W</div>
+                <div class="agendaMeta">
+                  <span>19/03</span>
+                  <span>21h</span>
+                  <span>18+</span>
+                </div>
+                <div class="agendaBottom">Confirmado — <span class="badge confirmado">Lote 1</span></div>
+              </div>
+              <div class="agendaItem" data-show="Brasília · Setor Q" data-date="02/04" data-time="22h" data-age="16+" data-status="A confirmar" data-info="Local em ajuste" data-ticket="https://sympla.com.br" data-flyer="assets/img/albums/lx_album2.png">
+                <div class="agendaTop">Brasília · Setor Q</div>
+                <div class="agendaMeta">
+                  <span>02/04</span>
+                  <span>22h</span>
+                  <span>16+</span>
+                </div>
+                <div class="agendaBottom">A confirmar — <span class="badge confirmar">Local em ajuste</span></div>
+              </div>
+              <div class="agendaItem" data-show="Salvador · Trap Fest" data-date="18/04" data-time="19h" data-age="Livre" data-status="Confirmado" data-info="Meet & greet" data-ticket="https://eventim.com.br" data-flyer="assets/img/albums/lx_album3.png">
+                <div class="agendaTop">Salvador · Trap Fest</div>
+                <div class="agendaMeta">
+                  <span>18/04</span>
+                  <span>19h</span>
+                  <span>Livre</span>
+                </div>
+                <div class="agendaBottom">Confirmado — <span class="badge confirmado">Local em ajuste</span></div>
+              </div>
+              <div class="agendaItem" data-show="Goiânia · Club 808" data-date="09/05" data-time="23h" data-age="18+" data-status="Confirmado" data-info="Pista lotada" data-ticket="https://ingresso.com" data-flyer="assets/img/albums/lx_album1.png">
+                <div class="agendaTop">Goiânia · Club 808</div>
+                <div class="agendaMeta">
+                  <span>09/05</span>
+                  <span>23h</span>
+                  <span>18+</span>
+                </div>
+                <div class="agendaBottom">Confirmado — <span class="badge confirmado">Pista lotada</span></div>
+              </div>
+              <div class="agendaItem" data-show="Fortaleza · Litoral Stage" data-date="24/05" data-time="20h" data-age="Livre" data-status="A confirmar" data-info="Detalhes em breve" data-ticket="https://sympla.com.br" data-flyer="assets/img/albums/lx_album2.png">
+                <div class="agendaTop">Fortaleza · Litoral Stage</div>
+                <div class="agendaMeta">
+                  <span>24/05</span>
+                  <span>20h</span>
+                  <span>Livre</span>
+                </div>
+                <div class="agendaBottom">A confirmar — <span class="badge confirmar">Detalhes em breve</span></div>
+              </div>
+              <div class="agendaItem" data-show="Curitiba · Garage 99" data-date="07/06" data-time="22h" data-age="18+" data-status="Confirmado" data-info="Lote 2" data-ticket="https://eventim.com.br" data-flyer="assets/img/albums/lx_album3.png">
+                <div class="agendaTop">Curitiba · Garage 99</div>
+                <div class="agendaMeta">
+                  <span>07/06</span>
+                  <span>22h</span>
+                  <span>18+</span>
+                </div>
+                <div class="agendaBottom">Confirmado — <span class="badge confirmado">Lote 2</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card promo">
+            <h3 style="margin:0 0 6px;">Leve o show / DJ set</h3>
+            <p class="note">
+              Show direto, sem frescura.
+              DJ set ou apresentação completa.
+              Rider simples. Presença garantida.
+            </p>
+            <a class="btn" href="assets/press-kit/press-kit.pdf" target="_blank" rel="noreferrer">Baixar Press Kit (PDF)</a>
+          </div>
+        </div>
+      </section>
+
+      <div class="agendaModal" id="agendaModal" aria-hidden="true">
+        <div class="agendaCard" role="dialog" aria-modal="true" aria-labelledby="agendaTitle">
+          <button class="modalClose" type="button" id="agendaClose">Fechar</button>
+          <div class="agendaFlyer">
+            <img id="agendaFlyer" src="" alt="Flyer do show" />
+          </div>
+          <div class="agendaDetails">
+            <h3 id="agendaTitle"></h3>
+            <div class="agendaMetaRow" id="agendaMeta"></div>
+            <div class="agendaBottom" id="agendaStatus"></div>
+            <div class="agendaActions">
+              <a class="btn primary" id="agendaTicket" href="#" target="_blank" rel="noreferrer">Comprar ingresso</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTATO -->
+      <section id="contato">
+        <div class="sectionHead">
+          <div>
+            <h2>Contato</h2>
+            <p>Mensagem rápida + atalhos (WhatsApp, e-mail, etc.).</p>
+          </div>
+        </div>
+
+        <div class="grid">
+          <div class="card contact">
+            <form id="contactForm">
+              <input name="nome" placeholder="Como posso te chamar?" required />
+              <input name="email" type="email" placeholder="Seu melhor e-mail" required />
+              <input name="assunto" placeholder="Sobre o que vamos falar? (show, feat, collab, marca…)" />
+              <textarea name="mensagem" placeholder="Explique a ideia em poucas linhas" required></textarea>
+              <button class="btn primary" type="submit">Enviar</button>
+              <div class="hint" id="formHint" style="display:none;"></div>
+            </form>
+          </div>
+
+          <div class="card contactSide">
+            <h3 style="margin:0 0 6px;">Atalhos</h3>
+            <p class="note">Fale direto para orçamentos e parcerias.</p>
+
+            <a class="btn primary" href="https://wa.me/5531994970560" target="_blank" rel="noreferrer">WhatsApp — Orçamentos e datas</a>
+            <a class="btn outline" href="mailto:assessoria.eusoulx@gmail.com">E-mail — Propostas formais</a>
+            <a class="btn outline" href="https://www.instagram.com/eusoulx/" target="_blank" rel="noreferrer">Instagram — Contato rápido</a>
+
+            <div class="card" style="box-shadow:none; background:rgba(255,255,255,.02);">
+              <b>Atendimento</b>
+              <p class="note" style="margin:6px 0 0;">
+                Resposta em até 24h para orçamentos, shows e beats exclusivos.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <footer>
+        <div class="wrap" style="padding:0;">
+          Se chegou até aqui, já sabe.<br />
+          © <span id="year"></span>
+          <div class="footerHandle">@l_souzaa2</div>
+          <a class="footerBtn" href="https://www.instagram.com/l_souzaa2/" target="_blank" rel="noreferrer">Isso é trabalho</a>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    // ano automático
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // animação de entrada dos cards
+    const cards = document.querySelectorAll(".card");
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            cardObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    cards.forEach((card) => cardObserver.observe(card));
+
+    // menu mobile
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    if (menuBtn) {
+      menuBtn.addEventListener("click", () => {
+        const open = mobileMenu.style.display === "block";
+        mobileMenu.style.display = open ? "none" : "block";
+        menuBtn.setAttribute("aria-expanded", String(!open));
+      });
+    }
+
+    // navbar: escurece ao rolar
+    const navbar = document.querySelector(".navbar");
+    const toggleNavbar = () => {
+      if (!navbar) return;
+      navbar.classList.toggle("scrolled", window.scrollY > 8);
+    };
+    toggleNavbar();
+    window.addEventListener("scroll", toggleNavbar, { passive: true });
+
+    // scroll suave para links internos (cards/botoes/menus)
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (e) => {
+        const targetId = link.getAttribute("href");
+        if (!targetId || targetId === "#") return;
+        const target = document.querySelector(targetId);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // agenda: modal do show
+    const agendaModal = document.getElementById("agendaModal");
+    const agendaClose = document.getElementById("agendaClose");
+    const agendaFlyer = document.getElementById("agendaFlyer");
+    const agendaTitle = document.getElementById("agendaTitle");
+    const agendaMeta = document.getElementById("agendaMeta");
+    const agendaStatus = document.getElementById("agendaStatus");
+    const agendaTicket = document.getElementById("agendaTicket");
+
+    const openAgendaModal = (data) => {
+      if (!agendaModal) return;
+      agendaFlyer.src = data.flyer || "";
+      agendaTitle.textContent = data.show || "Show";
+      agendaMeta.textContent = "";
+      ["date", "time", "age"].forEach((key) => {
+        if (!data[key]) return;
+        const span = document.createElement("span");
+        span.textContent = data[key];
+        agendaMeta.appendChild(span);
+      });
+      agendaStatus.textContent = `${data.status || ""}${data.info ? " — " + data.info : ""}`;
+      agendaTicket.href = data.ticket || "#";
+      agendaModal.classList.add("open");
+      agendaModal.setAttribute("aria-hidden", "false");
+    };
+
+    const closeAgendaModal = () => {
+      if (!agendaModal) return;
+      agendaModal.classList.remove("open");
+      agendaModal.setAttribute("aria-hidden", "true");
+    };
+
+    document.querySelectorAll(".agendaItem").forEach((item) => {
+      item.addEventListener("click", () => {
+        const data = {
+          show: item.dataset.show,
+          date: item.dataset.date,
+          time: item.dataset.time,
+          age: item.dataset.age,
+          status: item.dataset.status,
+          info: item.dataset.info,
+          ticket: item.dataset.ticket,
+          flyer: item.dataset.flyer,
+        };
+        openAgendaModal(data);
+      });
+    });
+
+    agendaModal?.addEventListener("click", (e) => {
+      if (e.target === agendaModal) closeAgendaModal();
+    });
+    agendaClose?.addEventListener("click", closeAgendaModal);
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeAgendaModal();
+    });
+
+    // formulário: monta mensagem e abre o WhatsApp
+    const form = document.getElementById("contactForm");
+    const hint = document.getElementById("formHint");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nome = form.elements["nome"]?.value?.trim() || "";
+      const email = form.elements["email"]?.value?.trim() || "";
+      const assunto = form.elements["assunto"]?.value?.trim() || "";
+      const mensagem = form.elements["mensagem"]?.value?.trim() || "";
+
+      const texto =
+        `Olá!%0A` +
+        `Nome: ${encodeURIComponent(nome)}%0A` +
+        `E-mail: ${encodeURIComponent(email)}%0A` +
+        `Assunto: ${encodeURIComponent(assunto)}%0A` +
+        `Mensagem: ${encodeURIComponent(mensagem)}`;
+
+      const phone = "5531994970560";
+      const url = `https://wa.me/${phone}?text=${texto}`;
+      window.open(url, "_blank", "noopener,noreferrer");
+
+      hint.style.display = "block";
+      hint.textContent = "Mensagem enviada. Em breve a equipe entra em contato.";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
